@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/dongdjZxq.iml" filepath="$PROJECT_DIR$/dongdjZxq.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zxqcontroller/zxqcontroller.iml" filepath="$PROJECT_DIR$/zxqcontroller/zxqcontroller.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zxqmapper/zxqmapper.iml" filepath="$PROJECT_DIR$/zxqmapper/zxqmapper.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zxqservice/zxqservice.iml" filepath="$PROJECT_DIR$/zxqservice/zxqservice.iml" />
+    </modules>
+  </component>
+</project>

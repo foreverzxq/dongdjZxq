@@ -1,0 +1,434 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mapper.JsGenTableMapper" >
+  <resultMap id="BaseResultMap" type="com.pojo.JsGenTable" >
+    <id column="table_name" property="tableName" jdbcType="VARCHAR" />
+    <result column="class_name" property="className" jdbcType="VARCHAR" />
+    <result column="comments" property="comments" jdbcType="VARCHAR" />
+    <result column="parent_table_name" property="parentTableName" jdbcType="VARCHAR" />
+    <result column="parent_table_fk_name" property="parentTableFkName" jdbcType="VARCHAR" />
+    <result column="tpl_category" property="tplCategory" jdbcType="VARCHAR" />
+    <result column="package_name" property="packageName" jdbcType="VARCHAR" />
+    <result column="module_name" property="moduleName" jdbcType="VARCHAR" />
+    <result column="sub_module_name" property="subModuleName" jdbcType="VARCHAR" />
+    <result column="function_name" property="functionName" jdbcType="VARCHAR" />
+    <result column="function_name_simple" property="functionNameSimple" jdbcType="VARCHAR" />
+    <result column="function_author" property="functionAuthor" jdbcType="VARCHAR" />
+    <result column="gen_base_dir" property="genBaseDir" jdbcType="VARCHAR" />
+    <result column="options" property="options" jdbcType="VARCHAR" />
+    <result column="create_by" property="createBy" jdbcType="VARCHAR" />
+    <result column="create_date" property="createDate" jdbcType="TIMESTAMP" />
+    <result column="update_by" property="updateBy" jdbcType="VARCHAR" />
+    <result column="update_date" property="updateDate" jdbcType="TIMESTAMP" />
+    <result column="remarks" property="remarks" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    table_name, class_name, comments, parent_table_name, parent_table_fk_name, tpl_category, 
+    package_name, module_name, sub_module_name, function_name, function_name_simple, 
+    function_author, gen_base_dir, options, create_by, create_date, update_by, update_date, 
+    remarks
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.pojo.JsGenTableExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from js_gen_table
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from js_gen_table
+    where table_name = #{tableName,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from js_gen_table
+    where table_name = #{tableName,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.pojo.JsGenTableExample" >
+    delete from js_gen_table
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.pojo.JsGenTable" >
+    insert into js_gen_table (table_name, class_name, comments, 
+      parent_table_name, parent_table_fk_name, tpl_category, 
+      package_name, module_name, sub_module_name, 
+      function_name, function_name_simple, function_author, 
+      gen_base_dir, options, create_by, 
+      create_date, update_by, update_date, 
+      remarks)
+    values (#{tableName,jdbcType=VARCHAR}, #{className,jdbcType=VARCHAR}, #{comments,jdbcType=VARCHAR}, 
+      #{parentTableName,jdbcType=VARCHAR}, #{parentTableFkName,jdbcType=VARCHAR}, #{tplCategory,jdbcType=VARCHAR}, 
+      #{packageName,jdbcType=VARCHAR}, #{moduleName,jdbcType=VARCHAR}, #{subModuleName,jdbcType=VARCHAR}, 
+      #{functionName,jdbcType=VARCHAR}, #{functionNameSimple,jdbcType=VARCHAR}, #{functionAuthor,jdbcType=VARCHAR}, 
+      #{genBaseDir,jdbcType=VARCHAR}, #{options,jdbcType=VARCHAR}, #{createBy,jdbcType=VARCHAR}, 
+      #{createDate,jdbcType=TIMESTAMP}, #{updateBy,jdbcType=VARCHAR}, #{updateDate,jdbcType=TIMESTAMP}, 
+      #{remarks,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.pojo.JsGenTable" >
+    insert into js_gen_table
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="tableName != null" >
+        table_name,
+      </if>
+      <if test="className != null" >
+        class_name,
+      </if>
+      <if test="comments != null" >
+        comments,
+      </if>
+      <if test="parentTableName != null" >
+        parent_table_name,
+      </if>
+      <if test="parentTableFkName != null" >
+        parent_table_fk_name,
+      </if>
+      <if test="tplCategory != null" >
+        tpl_category,
+      </if>
+      <if test="packageName != null" >
+        package_name,
+      </if>
+      <if test="moduleName != null" >
+        module_name,
+      </if>
+      <if test="subModuleName != null" >
+        sub_module_name,
+      </if>
+      <if test="functionName != null" >
+        function_name,
+      </if>
+      <if test="functionNameSimple != null" >
+        function_name_simple,
+      </if>
+      <if test="functionAuthor != null" >
+        function_author,
+      </if>
+      <if test="genBaseDir != null" >
+        gen_base_dir,
+      </if>
+      <if test="options != null" >
+        options,
+      </if>
+      <if test="createBy != null" >
+        create_by,
+      </if>
+      <if test="createDate != null" >
+        create_date,
+      </if>
+      <if test="updateBy != null" >
+        update_by,
+      </if>
+      <if test="updateDate != null" >
+        update_date,
+      </if>
+      <if test="remarks != null" >
+        remarks,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="tableName != null" >
+        #{tableName,jdbcType=VARCHAR},
+      </if>
+      <if test="className != null" >
+        #{className,jdbcType=VARCHAR},
+      </if>
+      <if test="comments != null" >
+        #{comments,jdbcType=VARCHAR},
+      </if>
+      <if test="parentTableName != null" >
+        #{parentTableName,jdbcType=VARCHAR},
+      </if>
+      <if test="parentTableFkName != null" >
+        #{parentTableFkName,jdbcType=VARCHAR},
+      </if>
+      <if test="tplCategory != null" >
+        #{tplCategory,jdbcType=VARCHAR},
+      </if>
+      <if test="packageName != null" >
+        #{packageName,jdbcType=VARCHAR},
+      </if>
+      <if test="moduleName != null" >
+        #{moduleName,jdbcType=VARCHAR},
+      </if>
+      <if test="subModuleName != null" >
+        #{subModuleName,jdbcType=VARCHAR},
+      </if>
+      <if test="functionName != null" >
+        #{functionName,jdbcType=VARCHAR},
+      </if>
+      <if test="functionNameSimple != null" >
+        #{functionNameSimple,jdbcType=VARCHAR},
+      </if>
+      <if test="functionAuthor != null" >
+        #{functionAuthor,jdbcType=VARCHAR},
+      </if>
+      <if test="genBaseDir != null" >
+        #{genBaseDir,jdbcType=VARCHAR},
+      </if>
+      <if test="options != null" >
+        #{options,jdbcType=VARCHAR},
+      </if>
+      <if test="createBy != null" >
+        #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null" >
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateBy != null" >
+        #{updateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDate != null" >
+        #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remarks != null" >
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.pojo.JsGenTableExample" resultType="java.lang.Integer" >
+    select count(*) from js_gen_table
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update js_gen_table
+    <set >
+      <if test="record.tableName != null" >
+        table_name = #{record.tableName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.className != null" >
+        class_name = #{record.className,jdbcType=VARCHAR},
+      </if>
+      <if test="record.comments != null" >
+        comments = #{record.comments,jdbcType=VARCHAR},
+      </if>
+      <if test="record.parentTableName != null" >
+        parent_table_name = #{record.parentTableName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.parentTableFkName != null" >
+        parent_table_fk_name = #{record.parentTableFkName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.tplCategory != null" >
+        tpl_category = #{record.tplCategory,jdbcType=VARCHAR},
+      </if>
+      <if test="record.packageName != null" >
+        package_name = #{record.packageName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.moduleName != null" >
+        module_name = #{record.moduleName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.subModuleName != null" >
+        sub_module_name = #{record.subModuleName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.functionName != null" >
+        function_name = #{record.functionName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.functionNameSimple != null" >
+        function_name_simple = #{record.functionNameSimple,jdbcType=VARCHAR},
+      </if>
+      <if test="record.functionAuthor != null" >
+        function_author = #{record.functionAuthor,jdbcType=VARCHAR},
+      </if>
+      <if test="record.genBaseDir != null" >
+        gen_base_dir = #{record.genBaseDir,jdbcType=VARCHAR},
+      </if>
+      <if test="record.options != null" >
+        options = #{record.options,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createBy != null" >
+        create_by = #{record.createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createDate != null" >
+        create_date = #{record.createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.updateBy != null" >
+        update_by = #{record.updateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="record.updateDate != null" >
+        update_date = #{record.updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.remarks != null" >
+        remarks = #{record.remarks,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update js_gen_table
+    set table_name = #{record.tableName,jdbcType=VARCHAR},
+      class_name = #{record.className,jdbcType=VARCHAR},
+      comments = #{record.comments,jdbcType=VARCHAR},
+      parent_table_name = #{record.parentTableName,jdbcType=VARCHAR},
+      parent_table_fk_name = #{record.parentTableFkName,jdbcType=VARCHAR},
+      tpl_category = #{record.tplCategory,jdbcType=VARCHAR},
+      package_name = #{record.packageName,jdbcType=VARCHAR},
+      module_name = #{record.moduleName,jdbcType=VARCHAR},
+      sub_module_name = #{record.subModuleName,jdbcType=VARCHAR},
+      function_name = #{record.functionName,jdbcType=VARCHAR},
+      function_name_simple = #{record.functionNameSimple,jdbcType=VARCHAR},
+      function_author = #{record.functionAuthor,jdbcType=VARCHAR},
+      gen_base_dir = #{record.genBaseDir,jdbcType=VARCHAR},
+      options = #{record.options,jdbcType=VARCHAR},
+      create_by = #{record.createBy,jdbcType=VARCHAR},
+      create_date = #{record.createDate,jdbcType=TIMESTAMP},
+      update_by = #{record.updateBy,jdbcType=VARCHAR},
+      update_date = #{record.updateDate,jdbcType=TIMESTAMP},
+      remarks = #{record.remarks,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.pojo.JsGenTable" >
+    update js_gen_table
+    <set >
+      <if test="className != null" >
+        class_name = #{className,jdbcType=VARCHAR},
+      </if>
+      <if test="comments != null" >
+        comments = #{comments,jdbcType=VARCHAR},
+      </if>
+      <if test="parentTableName != null" >
+        parent_table_name = #{parentTableName,jdbcType=VARCHAR},
+      </if>
+      <if test="parentTableFkName != null" >
+        parent_table_fk_name = #{parentTableFkName,jdbcType=VARCHAR},
+      </if>
+      <if test="tplCategory != null" >
+        tpl_category = #{tplCategory,jdbcType=VARCHAR},
+      </if>
+      <if test="packageName != null" >
+        package_name = #{packageName,jdbcType=VARCHAR},
+      </if>
+      <if test="moduleName != null" >
+        module_name = #{moduleName,jdbcType=VARCHAR},
+      </if>
+      <if test="subModuleName != null" >
+        sub_module_name = #{subModuleName,jdbcType=VARCHAR},
+      </if>
+      <if test="functionName != null" >
+        function_name = #{functionName,jdbcType=VARCHAR},
+      </if>
+      <if test="functionNameSimple != null" >
+        function_name_simple = #{functionNameSimple,jdbcType=VARCHAR},
+      </if>
+      <if test="functionAuthor != null" >
+        function_author = #{functionAuthor,jdbcType=VARCHAR},
+      </if>
+      <if test="genBaseDir != null" >
+        gen_base_dir = #{genBaseDir,jdbcType=VARCHAR},
+      </if>
+      <if test="options != null" >
+        options = #{options,jdbcType=VARCHAR},
+      </if>
+      <if test="createBy != null" >
+        create_by = #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null" >
+        create_date = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateBy != null" >
+        update_by = #{updateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDate != null" >
+        update_date = #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remarks != null" >
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where table_name = #{tableName,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.pojo.JsGenTable" >
+    update js_gen_table
+    set class_name = #{className,jdbcType=VARCHAR},
+      comments = #{comments,jdbcType=VARCHAR},
+      parent_table_name = #{parentTableName,jdbcType=VARCHAR},
+      parent_table_fk_name = #{parentTableFkName,jdbcType=VARCHAR},
+      tpl_category = #{tplCategory,jdbcType=VARCHAR},
+      package_name = #{packageName,jdbcType=VARCHAR},
+      module_name = #{moduleName,jdbcType=VARCHAR},
+      sub_module_name = #{subModuleName,jdbcType=VARCHAR},
+      function_name = #{functionName,jdbcType=VARCHAR},
+      function_name_simple = #{functionNameSimple,jdbcType=VARCHAR},
+      function_author = #{functionAuthor,jdbcType=VARCHAR},
+      gen_base_dir = #{genBaseDir,jdbcType=VARCHAR},
+      options = #{options,jdbcType=VARCHAR},
+      create_by = #{createBy,jdbcType=VARCHAR},
+      create_date = #{createDate,jdbcType=TIMESTAMP},
+      update_by = #{updateBy,jdbcType=VARCHAR},
+      update_date = #{updateDate,jdbcType=TIMESTAMP},
+      remarks = #{remarks,jdbcType=VARCHAR}
+    where table_name = #{tableName,jdbcType=VARCHAR}
+  </update>
+</mapper>

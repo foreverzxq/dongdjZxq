@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="zxqcontroller" />
+        <module name="zxqmapper" />
+        <module name="zxqservice" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="dongdjZxq" target="1.7" />
+      <module name="zxqcontroller" target="1.7" />
+      <module name="zxqmapper" target="1.7" />
+      <module name="zxqservice" target="1.7" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

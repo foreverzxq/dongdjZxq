@@ -1,0 +1,497 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mapper.JsSysMsgInnerMapper" >
+  <resultMap id="BaseResultMap" type="com.pojo.JsSysMsgInner" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="msg_title" property="msgTitle" jdbcType="VARCHAR" />
+    <result column="content_level" property="contentLevel" jdbcType="CHAR" />
+    <result column="content_type" property="contentType" jdbcType="CHAR" />
+    <result column="receive_type" property="receiveType" jdbcType="CHAR" />
+    <result column="send_user_code" property="sendUserCode" jdbcType="VARCHAR" />
+    <result column="send_user_name" property="sendUserName" jdbcType="VARCHAR" />
+    <result column="send_date" property="sendDate" jdbcType="TIMESTAMP" />
+    <result column="is_attac" property="isAttac" jdbcType="CHAR" />
+    <result column="notify_types" property="notifyTypes" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="CHAR" />
+    <result column="create_by" property="createBy" jdbcType="VARCHAR" />
+    <result column="create_date" property="createDate" jdbcType="TIMESTAMP" />
+    <result column="update_by" property="updateBy" jdbcType="VARCHAR" />
+    <result column="update_date" property="updateDate" jdbcType="TIMESTAMP" />
+    <result column="remarks" property="remarks" jdbcType="VARCHAR" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.pojo.JsSysMsgInnerWithBLOBs" extends="BaseResultMap" >
+    <result column="msg_content" property="msgContent" jdbcType="LONGVARCHAR" />
+    <result column="receive_codes" property="receiveCodes" jdbcType="LONGVARCHAR" />
+    <result column="receive_names" property="receiveNames" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, msg_title, content_level, content_type, receive_type, send_user_code, send_user_name, 
+    send_date, is_attac, notify_types, status, create_by, create_date, update_by, update_date, 
+    remarks
+  </sql>
+  <sql id="Blob_Column_List" >
+    msg_content, receive_codes, receive_names
+  </sql>
+  <select id="selectByExampleWithBLOBs" resultMap="ResultMapWithBLOBs" parameterType="com.pojo.JsSysMsgInnerExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from js_sys_msg_inner
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.pojo.JsSysMsgInnerExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from js_sys_msg_inner
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from js_sys_msg_inner
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from js_sys_msg_inner
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.pojo.JsSysMsgInnerExample" >
+    delete from js_sys_msg_inner
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.pojo.JsSysMsgInnerWithBLOBs" >
+    insert into js_sys_msg_inner (id, msg_title, content_level, 
+      content_type, receive_type, send_user_code, 
+      send_user_name, send_date, is_attac, 
+      notify_types, status, create_by, 
+      create_date, update_by, update_date, 
+      remarks, msg_content, receive_codes, 
+      receive_names)
+    values (#{id,jdbcType=VARCHAR}, #{msgTitle,jdbcType=VARCHAR}, #{contentLevel,jdbcType=CHAR}, 
+      #{contentType,jdbcType=CHAR}, #{receiveType,jdbcType=CHAR}, #{sendUserCode,jdbcType=VARCHAR}, 
+      #{sendUserName,jdbcType=VARCHAR}, #{sendDate,jdbcType=TIMESTAMP}, #{isAttac,jdbcType=CHAR}, 
+      #{notifyTypes,jdbcType=VARCHAR}, #{status,jdbcType=CHAR}, #{createBy,jdbcType=VARCHAR}, 
+      #{createDate,jdbcType=TIMESTAMP}, #{updateBy,jdbcType=VARCHAR}, #{updateDate,jdbcType=TIMESTAMP}, 
+      #{remarks,jdbcType=VARCHAR}, #{msgContent,jdbcType=LONGVARCHAR}, #{receiveCodes,jdbcType=LONGVARCHAR}, 
+      #{receiveNames,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.pojo.JsSysMsgInnerWithBLOBs" >
+    insert into js_sys_msg_inner
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="msgTitle != null" >
+        msg_title,
+      </if>
+      <if test="contentLevel != null" >
+        content_level,
+      </if>
+      <if test="contentType != null" >
+        content_type,
+      </if>
+      <if test="receiveType != null" >
+        receive_type,
+      </if>
+      <if test="sendUserCode != null" >
+        send_user_code,
+      </if>
+      <if test="sendUserName != null" >
+        send_user_name,
+      </if>
+      <if test="sendDate != null" >
+        send_date,
+      </if>
+      <if test="isAttac != null" >
+        is_attac,
+      </if>
+      <if test="notifyTypes != null" >
+        notify_types,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="createBy != null" >
+        create_by,
+      </if>
+      <if test="createDate != null" >
+        create_date,
+      </if>
+      <if test="updateBy != null" >
+        update_by,
+      </if>
+      <if test="updateDate != null" >
+        update_date,
+      </if>
+      <if test="remarks != null" >
+        remarks,
+      </if>
+      <if test="msgContent != null" >
+        msg_content,
+      </if>
+      <if test="receiveCodes != null" >
+        receive_codes,
+      </if>
+      <if test="receiveNames != null" >
+        receive_names,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="msgTitle != null" >
+        #{msgTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="contentLevel != null" >
+        #{contentLevel,jdbcType=CHAR},
+      </if>
+      <if test="contentType != null" >
+        #{contentType,jdbcType=CHAR},
+      </if>
+      <if test="receiveType != null" >
+        #{receiveType,jdbcType=CHAR},
+      </if>
+      <if test="sendUserCode != null" >
+        #{sendUserCode,jdbcType=VARCHAR},
+      </if>
+      <if test="sendUserName != null" >
+        #{sendUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="sendDate != null" >
+        #{sendDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isAttac != null" >
+        #{isAttac,jdbcType=CHAR},
+      </if>
+      <if test="notifyTypes != null" >
+        #{notifyTypes,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=CHAR},
+      </if>
+      <if test="createBy != null" >
+        #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null" >
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateBy != null" >
+        #{updateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDate != null" >
+        #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remarks != null" >
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="msgContent != null" >
+        #{msgContent,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="receiveCodes != null" >
+        #{receiveCodes,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="receiveNames != null" >
+        #{receiveNames,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.pojo.JsSysMsgInnerExample" resultType="java.lang.Integer" >
+    select count(*) from js_sys_msg_inner
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update js_sys_msg_inner
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=VARCHAR},
+      </if>
+      <if test="record.msgTitle != null" >
+        msg_title = #{record.msgTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="record.contentLevel != null" >
+        content_level = #{record.contentLevel,jdbcType=CHAR},
+      </if>
+      <if test="record.contentType != null" >
+        content_type = #{record.contentType,jdbcType=CHAR},
+      </if>
+      <if test="record.receiveType != null" >
+        receive_type = #{record.receiveType,jdbcType=CHAR},
+      </if>
+      <if test="record.sendUserCode != null" >
+        send_user_code = #{record.sendUserCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sendUserName != null" >
+        send_user_name = #{record.sendUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sendDate != null" >
+        send_date = #{record.sendDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.isAttac != null" >
+        is_attac = #{record.isAttac,jdbcType=CHAR},
+      </if>
+      <if test="record.notifyTypes != null" >
+        notify_types = #{record.notifyTypes,jdbcType=VARCHAR},
+      </if>
+      <if test="record.status != null" >
+        status = #{record.status,jdbcType=CHAR},
+      </if>
+      <if test="record.createBy != null" >
+        create_by = #{record.createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createDate != null" >
+        create_date = #{record.createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.updateBy != null" >
+        update_by = #{record.updateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="record.updateDate != null" >
+        update_date = #{record.updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.remarks != null" >
+        remarks = #{record.remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="record.msgContent != null" >
+        msg_content = #{record.msgContent,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="record.receiveCodes != null" >
+        receive_codes = #{record.receiveCodes,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="record.receiveNames != null" >
+        receive_names = #{record.receiveNames,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map" >
+    update js_sys_msg_inner
+    set id = #{record.id,jdbcType=VARCHAR},
+      msg_title = #{record.msgTitle,jdbcType=VARCHAR},
+      content_level = #{record.contentLevel,jdbcType=CHAR},
+      content_type = #{record.contentType,jdbcType=CHAR},
+      receive_type = #{record.receiveType,jdbcType=CHAR},
+      send_user_code = #{record.sendUserCode,jdbcType=VARCHAR},
+      send_user_name = #{record.sendUserName,jdbcType=VARCHAR},
+      send_date = #{record.sendDate,jdbcType=TIMESTAMP},
+      is_attac = #{record.isAttac,jdbcType=CHAR},
+      notify_types = #{record.notifyTypes,jdbcType=VARCHAR},
+      status = #{record.status,jdbcType=CHAR},
+      create_by = #{record.createBy,jdbcType=VARCHAR},
+      create_date = #{record.createDate,jdbcType=TIMESTAMP},
+      update_by = #{record.updateBy,jdbcType=VARCHAR},
+      update_date = #{record.updateDate,jdbcType=TIMESTAMP},
+      remarks = #{record.remarks,jdbcType=VARCHAR},
+      msg_content = #{record.msgContent,jdbcType=LONGVARCHAR},
+      receive_codes = #{record.receiveCodes,jdbcType=LONGVARCHAR},
+      receive_names = #{record.receiveNames,jdbcType=LONGVARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update js_sys_msg_inner
+    set id = #{record.id,jdbcType=VARCHAR},
+      msg_title = #{record.msgTitle,jdbcType=VARCHAR},
+      content_level = #{record.contentLevel,jdbcType=CHAR},
+      content_type = #{record.contentType,jdbcType=CHAR},
+      receive_type = #{record.receiveType,jdbcType=CHAR},
+      send_user_code = #{record.sendUserCode,jdbcType=VARCHAR},
+      send_user_name = #{record.sendUserName,jdbcType=VARCHAR},
+      send_date = #{record.sendDate,jdbcType=TIMESTAMP},
+      is_attac = #{record.isAttac,jdbcType=CHAR},
+      notify_types = #{record.notifyTypes,jdbcType=VARCHAR},
+      status = #{record.status,jdbcType=CHAR},
+      create_by = #{record.createBy,jdbcType=VARCHAR},
+      create_date = #{record.createDate,jdbcType=TIMESTAMP},
+      update_by = #{record.updateBy,jdbcType=VARCHAR},
+      update_date = #{record.updateDate,jdbcType=TIMESTAMP},
+      remarks = #{record.remarks,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.pojo.JsSysMsgInnerWithBLOBs" >
+    update js_sys_msg_inner
+    <set >
+      <if test="msgTitle != null" >
+        msg_title = #{msgTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="contentLevel != null" >
+        content_level = #{contentLevel,jdbcType=CHAR},
+      </if>
+      <if test="contentType != null" >
+        content_type = #{contentType,jdbcType=CHAR},
+      </if>
+      <if test="receiveType != null" >
+        receive_type = #{receiveType,jdbcType=CHAR},
+      </if>
+      <if test="sendUserCode != null" >
+        send_user_code = #{sendUserCode,jdbcType=VARCHAR},
+      </if>
+      <if test="sendUserName != null" >
+        send_user_name = #{sendUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="sendDate != null" >
+        send_date = #{sendDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isAttac != null" >
+        is_attac = #{isAttac,jdbcType=CHAR},
+      </if>
+      <if test="notifyTypes != null" >
+        notify_types = #{notifyTypes,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=CHAR},
+      </if>
+      <if test="createBy != null" >
+        create_by = #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null" >
+        create_date = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateBy != null" >
+        update_by = #{updateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDate != null" >
+        update_date = #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remarks != null" >
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="msgContent != null" >
+        msg_content = #{msgContent,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="receiveCodes != null" >
+        receive_codes = #{receiveCodes,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="receiveNames != null" >
+        receive_names = #{receiveNames,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.pojo.JsSysMsgInnerWithBLOBs" >
+    update js_sys_msg_inner
+    set msg_title = #{msgTitle,jdbcType=VARCHAR},
+      content_level = #{contentLevel,jdbcType=CHAR},
+      content_type = #{contentType,jdbcType=CHAR},
+      receive_type = #{receiveType,jdbcType=CHAR},
+      send_user_code = #{sendUserCode,jdbcType=VARCHAR},
+      send_user_name = #{sendUserName,jdbcType=VARCHAR},
+      send_date = #{sendDate,jdbcType=TIMESTAMP},
+      is_attac = #{isAttac,jdbcType=CHAR},
+      notify_types = #{notifyTypes,jdbcType=VARCHAR},
+      status = #{status,jdbcType=CHAR},
+      create_by = #{createBy,jdbcType=VARCHAR},
+      create_date = #{createDate,jdbcType=TIMESTAMP},
+      update_by = #{updateBy,jdbcType=VARCHAR},
+      update_date = #{updateDate,jdbcType=TIMESTAMP},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      msg_content = #{msgContent,jdbcType=LONGVARCHAR},
+      receive_codes = #{receiveCodes,jdbcType=LONGVARCHAR},
+      receive_names = #{receiveNames,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.pojo.JsSysMsgInner" >
+    update js_sys_msg_inner
+    set msg_title = #{msgTitle,jdbcType=VARCHAR},
+      content_level = #{contentLevel,jdbcType=CHAR},
+      content_type = #{contentType,jdbcType=CHAR},
+      receive_type = #{receiveType,jdbcType=CHAR},
+      send_user_code = #{sendUserCode,jdbcType=VARCHAR},
+      send_user_name = #{sendUserName,jdbcType=VARCHAR},
+      send_date = #{sendDate,jdbcType=TIMESTAMP},
+      is_attac = #{isAttac,jdbcType=CHAR},
+      notify_types = #{notifyTypes,jdbcType=VARCHAR},
+      status = #{status,jdbcType=CHAR},
+      create_by = #{createBy,jdbcType=VARCHAR},
+      create_date = #{createDate,jdbcType=TIMESTAMP},
+      update_by = #{updateBy,jdbcType=VARCHAR},
+      update_date = #{updateDate,jdbcType=TIMESTAMP},
+      remarks = #{remarks,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>
