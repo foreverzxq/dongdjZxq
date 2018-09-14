@@ -6,42 +6,11 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f08749dd-4ee2-4567-a04a-b4b59b6efc71" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/zxqcontroller/target/tomcat/logs/access_log.2018-09-13" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/zxqcontroller/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/WEB_002dINF/jsp/index_jsp.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/zxqcontroller/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/WEB_002dINF/jsp/index_jsp.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/zxqcontroller/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/WEB_002dINF/jsp/login_005fin_jsp.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/zxqcontroller/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/WEB_002dINF/jsp/login_005fin_jsp.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/zxqcontroller/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/page/main_jsp.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/zxqcontroller/target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/page/main_jsp.java" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zxqcontroller/target/classes/com/controller/LoginController.class" afterPath="$PROJECT_DIR$/zxqcontroller/target/classes/com/controller/LoginController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zxqmapper/target/classes/com/pojo/LyUser.class" afterPath="$PROJECT_DIR$/zxqmapper/target/classes/com/pojo/LyUser.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zxqmapper/target/classes/com/pojo/LyUserExample$Criteria.class" afterPath="$PROJECT_DIR$/zxqmapper/target/classes/com/pojo/LyUserExample$Criteria.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zxqmapper/target/classes/com/pojo/LyUserExample$Criterion.class" afterPath="$PROJECT_DIR$/zxqmapper/target/classes/com/pojo/LyUserExample$Criterion.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zxqmapper/target/classes/com/pojo/LyUserExample$GeneratedCriteria.class" afterPath="$PROJECT_DIR$/zxqmapper/target/classes/com/pojo/LyUserExample$GeneratedCriteria.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zxqmapper/target/zxq-mapper.jar" afterPath="$PROJECT_DIR$/zxqmapper/target/zxq-mapper.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zxqservice/target/classes/service/GetLoginService.class" afterPath="$PROJECT_DIR$/zxqservice/target/classes/service/GetLoginService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zxqservice/target/classes/service/Impl/GetLoginServiceImpl.class" afterPath="$PROJECT_DIR$/zxqservice/target/classes/service/Impl/GetLoginServiceImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zxqservice/target/zxqservice.jar" afterPath="$PROJECT_DIR$/zxqservice/target/zxqservice.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
+    <list default="true" id="f08749dd-4ee2-4567-a04a-b4b59b6efc71" name="Default" comment="201809141739">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zxqcontroller/target/classes/com/controller/UserController.class" afterPath="$PROJECT_DIR$/zxqcontroller/target/classes/com/controller/UserController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zxqservice/target/classes/service/GetUserService.class" afterPath="$PROJECT_DIR$/zxqservice/target/classes/service/GetUserService.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zxqservice/target/classes/service/Impl/GetUserServiceImpl.class" afterPath="$PROJECT_DIR$/zxqservice/target/classes/service/Impl/GetUserServiceImpl.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zxqcontroller/src/main/java/com/controller/LoginController.java" afterPath="$PROJECT_DIR$/zxqcontroller/src/main/java/com/controller/LoginController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zxqcontroller/src/main/java/com/controller/UserController.java" afterPath="$PROJECT_DIR$/zxqcontroller/src/main/java/com/controller/UserController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zxqcontroller/src/main/webapp/WEB-INF/jsp/index.jsp" afterPath="$PROJECT_DIR$/zxqcontroller/src/main/webapp/WEB-INF/jsp/index.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zxqcontroller/src/main/webapp/WEB-INF/jsp/login_in.jsp" afterPath="$PROJECT_DIR$/zxqcontroller/src/main/webapp/WEB-INF/jsp/login_in.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zxqcontroller/src/main/webapp/js/main.js" afterPath="$PROJECT_DIR$/zxqcontroller/src/main/webapp/js/main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zxqcontroller/src/main/webapp/page/main.jsp" afterPath="$PROJECT_DIR$/zxqcontroller/src/main/webapp/page/main.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zxqcontroller/src/main/webapp/page/user/userAdd.jsp" afterPath="$PROJECT_DIR$/zxqcontroller/src/main/webapp/page/user/userAdd.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zxqcontroller/src/main/webapp/page/user/userAddJs.js" afterPath="$PROJECT_DIR$/zxqcontroller/src/main/webapp/page/user/userAddJs.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zxqmapper/src/main/java/com/mapper/LyUserMapper.xml" afterPath="$PROJECT_DIR$/zxqmapper/src/main/java/com/mapper/LyUserMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zxqmapper/src/main/java/com/pojo/LyUser.java" afterPath="$PROJECT_DIR$/zxqmapper/src/main/java/com/pojo/LyUser.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zxqmapper/src/main/java/com/pojo/LyUserExample.java" afterPath="$PROJECT_DIR$/zxqmapper/src/main/java/com/pojo/LyUserExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zxqmapper/target/classes/com/mapper/LyUserMapper.xml" afterPath="$PROJECT_DIR$/zxqmapper/target/classes/com/mapper/LyUserMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zxqservice/src/main/java/service/GetLoginService.java" afterPath="$PROJECT_DIR$/zxqservice/src/main/java/service/GetLoginService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zxqservice/src/main/java/service/GetUserService.java" afterPath="$PROJECT_DIR$/zxqservice/src/main/java/service/GetUserService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zxqservice/src/main/java/service/Impl/GetLoginServiceImpl.java" afterPath="$PROJECT_DIR$/zxqservice/src/main/java/service/Impl/GetLoginServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zxqservice/src/main/java/service/Impl/GetUserServiceImpl.java" afterPath="$PROJECT_DIR$/zxqservice/src/main/java/service/Impl/GetUserServiceImpl.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -715,12 +684,20 @@
       <workItem from="1536800733250" duration="15765000" />
       <workItem from="1536823461697" duration="3542000" />
       <workItem from="1536891231322" duration="2389000" />
-      <workItem from="1536904815399" duration="12913000" />
+      <workItem from="1536904815399" duration="12955000" />
     </task>
+    <task id="LOCAL-00001" summary="201809141739">
+      <created>1536918016088</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1536918016088</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="95635000" />
+    <option name="totallyTimeSpent" value="95677000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -736,7 +713,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19725558" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.6123499" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980332" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32761577" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
