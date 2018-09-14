@@ -663,6 +663,76 @@ public class LyUserExample {
             addCriterion("user_desc not between", value1, value2, "userDesc");
             return (Criteria) this;
         }
+
+        public Criteria andUserPwdIsNull() {
+            addCriterion("user_pwd is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserPwdIsNotNull() {
+            addCriterion("user_pwd is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserPwdEqualTo(String value) {
+            addCriterion("user_pwd =", value, "userPwd");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserPwdNotEqualTo(String value) {
+            addCriterion("user_pwd <>", value, "userPwd");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserPwdGreaterThan(String value) {
+            addCriterion("user_pwd >", value, "userPwd");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserPwdGreaterThanOrEqualTo(String value) {
+            addCriterion("user_pwd >=", value, "userPwd");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserPwdLessThan(String value) {
+            addCriterion("user_pwd <", value, "userPwd");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserPwdLessThanOrEqualTo(String value) {
+            addCriterion("user_pwd <=", value, "userPwd");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserPwdLike(String value) {
+            addCriterion("user_pwd like", value, "userPwd");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserPwdNotLike(String value) {
+            addCriterion("user_pwd not like", value, "userPwd");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserPwdIn(List<String> values) {
+            addCriterion("user_pwd in", values, "userPwd");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserPwdNotIn(List<String> values) {
+            addCriterion("user_pwd not in", values, "userPwd");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserPwdBetween(String value1, String value2) {
+            addCriterion("user_pwd between", value1, value2, "userPwd");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserPwdNotBetween(String value1, String value2) {
+            addCriterion("user_pwd not between", value1, value2, "userPwd");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {

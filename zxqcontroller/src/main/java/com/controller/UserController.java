@@ -26,7 +26,7 @@ public class UserController {
     private GetUserService getUserService;
 
     @RequestMapping("userList")
-//    @ResponseBody
+//  @ResponseBody
     public String getUser(Model model){
 //       List<JsSysUser> jsSysUserList = getUserService.getUserList();
 //       model.addAttribute("jsSysUserList",jsSysUserList);
@@ -40,7 +40,6 @@ public class UserController {
      //   System.out.println("limit====="+limit);
        // System.out.println("page========"+page);
       //  System.out.println("key"+key);
-
             DataUser dataUser = getUserService.getUserListByjson(page,limit,key);
             return  dataUser;
     }
@@ -95,5 +94,26 @@ public class UserController {
         }
         return layUiResult;
     }
+
+   @RequestMapping("checkUserName")
+   @ResponseBody
+    private LayUiResult checkUserName(@RequestParam("name") String name) throws Exception {
+       LayUiResult layUiResult = getUserService.checkUserName(name);
+       if(layUiResult.getStatus() !=200){
+           throw  new Exception();
+       }
+       return layUiResult;
+    }
+    @RequestMapping("checkEmail")
+    @ResponseBody
+    private LayUiResult checkEmail(@RequestParam("email") String email) throws Exception {
+        LayUiResult layUiResult = getUserService.checkEmail(email);
+        if(layUiResult.getStatus() !=200){
+            throw  new Exception();
+        }
+        return layUiResult;
+    }
+
+
 
 }

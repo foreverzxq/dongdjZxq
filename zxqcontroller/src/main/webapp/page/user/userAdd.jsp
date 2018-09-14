@@ -13,19 +13,23 @@
 	<link rel="stylesheet" href="../../layui/css/layui.css" media="all" />
 	<link rel="stylesheet" href="../../css/public.css" media="all" />
 </head>
+<script type="text/javascript" src="../../layui/layui.js"></script>
+<script type="text/javascript" src="userAddJs.js"></script>
+
 <body class="childrenBody">
 <form class="layui-form" style="width:80%;">
 	<div class="layui-form-item layui-row layui-col-xs12">
 		<label class="layui-form-label">登录名</label>
 		<div class="layui-input-block">
             <input type="hidden" class="layui-input usersId">
-			<input type="text" class="layui-input userName" lay-verify="required" placeholder="请输入登录名">
+			<input type="text" class="layui-input userName"  lay-verify="required" placeholder="请输入登录名"><span id="checkUN"></span>
 		</div>
+
 	</div>
 	<div class="layui-form-item layui-row layui-col-xs12">
 		<label class="layui-form-label">邮箱</label>
 		<div class="layui-input-block">
-			<input type="text" class="layui-input userEmail" lay-verify="email" placeholder="请输入邮箱">
+			<input type="text" class="layui-input userEmail" lay-verify="email" placeholder="请输入邮箱"><span id="checkEm"></span>
 		</div>
 	</div>
 	<div class="layui-row">
@@ -67,12 +71,11 @@
 	</div>
 	<div class="layui-form-item layui-row layui-col-xs12">
 		<div class="layui-input-block">
-			<button class="layui-btn layui-btn-sm" lay-submit="" lay-filter="addUser">立即添加</button>
+			<button class="layui-btn layui-btn-sm" lay-submit="" lay-filter="addUser" id="btn_submit">立即添加</button>
 			<button type="reset" class="layui-btn layui-btn-sm layui-btn-primary">取消</button>
 		</div>
 	</div>
 </form>
-<script type="text/javascript" src="../../layui/layui.js"></script>
-<script type="text/javascript" src="userAddJs.js"></script>
+
 </body>
 </html>

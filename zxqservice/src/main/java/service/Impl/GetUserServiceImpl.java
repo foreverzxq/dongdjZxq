@@ -103,4 +103,42 @@ public class GetUserServiceImpl implements GetUserService {
        }
         return LayUiResult.ok(0);
     }
+
+    @Override
+    public LayUiResult checkUserName(String username) {
+          /*1 用户名已存在
+            2 不能为空
+            3 该用户名可用
+          * */
+        LyUserExample lyUserExample = new LyUserExample();
+        Criteria criteria = lyUserExample.createCriteria();
+        if(null == username|| "".equals(username)){
+            return LayUiResult.ok(2);
+        }
+        criteria.andUserNameEqualTo(username);
+        List<LyUser> lyUserList = lyUserMapper.selectByExample(lyUserExample);
+        if(null != lyUserList && lyUserList.size()>0){
+            return LayUiResult.ok(1);
+        }
+        return LayUiResult.ok(3);
+    }
+
+    @Override
+    public LayUiResult checkEmail(String email) {
+        LyUserExample lyUserExample = new LyUserExample();
+        Criteria criteria = lyUserExample.createCriteria();
+        if(null == email){
+            return LayUiResult.ok(2);
+        }
+        if(!email.contains("@")){
+            return LayUiResult.ok(4);
+        }
+        criteria.andUserEmailEqualTo(email);
+        List<LyUser> lyUserList = lyUserMapper.selectByExample(lyUserExample);
+        if(null != lyUserList && lyUserList.size()>0){
+            return LayUiResult.ok(1);
+        }
+        return LayUiResult.ok(3);
+    }
+
 }

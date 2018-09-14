@@ -1,9 +1,12 @@
 package service.Impl;
 
 import com.mapper.JsSysUserMapper;
+import com.mapper.LyUserMapper;
 import com.pojo.JsSysUser;
-import com.pojo.JsSysUserExample;
-import com.pojo.JsSysUserExample.Criteria;
+import com.pojo.LyUserExample;
+import com.pojo.LyUserExample.Criteria;
+import com.pojo.LyUser;
+import com.pojo.LyUserExample;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import service.GetLoginService;
@@ -13,19 +16,18 @@ import java.util.List;
 @Service
 public class GetLoginServiceImpl implements GetLoginService {
     @Autowired
-    private JsSysUserMapper jsSysUserMapper;
+    private LyUserMapper lyUserMapper;
     @Override
-    public JsSysUser getLoginUser(String username, String password) {
-        JsSysUserExample jsSysUserExample = new JsSysUserExample();
-        Criteria criteria = jsSysUserExample.createCriteria();
-        criteria.andLoginCodeEqualTo(username);
-       // criteria.andPasswordEqualTo(password);
+    public LyUser getLoginUser(String username, String password) {
+        LyUserExample lyUserExample = new LyUserExample();
+        Criteria criteria = lyUserExample.createCriteria();
+        criteria.andUserNameEqualTo(username);
+        criteria.andUserPwdEqualTo(password);
 
-       List<JsSysUser> jsSysUserList =  jsSysUserMapper.selectByExample(jsSysUserExample);
-       if(null != jsSysUserList && jsSysUserList.size()>0){
-           JsSysUser jsSysUser = new JsSysUser();
-           jsSysUser = jsSysUserList.get(0);
-           return jsSysUser;
+       List<LyUser> lyUserList =  lyUserMapper.selectByExample(lyUserExample);
+       if(null != lyUserList && lyUserList.size()>0){
+           LyUser lyUser = lyUserList.get(0);
+           return lyUser;
        }
 
         return null;

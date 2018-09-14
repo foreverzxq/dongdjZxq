@@ -17,6 +17,8 @@ public class LyUser {
 
     private String userDesc;
 
+    private String userPwd;
+
     public String getUsersId() {
         return usersId;
     }
@@ -79,5 +81,13 @@ public class LyUser {
 
     public void setUserDesc(String userDesc) {
         this.userDesc = userDesc == null ? null : userDesc.trim();
+    }
+
+    public String getUserPwd() {
+        return userPwd;
+    }
+
+    public void setUserPwd(String userPwd) {
+        this.userPwd = userPwd == null ? null : userPwd.trim();
     }
 }

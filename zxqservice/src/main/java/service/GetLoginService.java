@@ -1,8 +1,9 @@
 package service;
 
-import com.pojo.JsSysUser;
+import com.common.LayUiResult;
+import com.pojo.LyUser;
 
 public interface GetLoginService {
 
-    public JsSysUser getLoginUser(String username,String password);
+    public LyUser getLoginUser(String username, String password);
 }

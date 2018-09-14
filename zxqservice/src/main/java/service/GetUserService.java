@@ -18,4 +18,9 @@ public interface GetUserService {
     public LayUiResult changeStatus(String id,String status);
 
     public LayUiResult getCountUser();
+
+    public LayUiResult checkUserName(String username);
+
+    public LayUiResult checkEmail(String email);
+
 }
